@@ -351,27 +351,27 @@ Test labels shape:  (10000,)
 ###### 矩阵简化计算
 我们记测试矩阵为P，大小为M×D，训练矩阵为C，大小为N×D  
 （1）记P<sub>i</sub>是P的第i行，同理C<sub>j</sub>是C的第j行:  
-```math
+$$
 P_i=[P_{i1}\ P_{i2}\ P_{i3}\ \cdots\ P_{iD}]  
 
 C_j=[C_{j1}\ C_{j2}\ C_{j3}\ \cdots\ C_{jD}]
-```
-（2）计算P<sub>i</sub>和C<sub>j</sub>之间的欧式距离：  
-```math
+$$
+（2）计算P<sub>i</sub>和C<sub>j</sub>之间的欧式距离：  
+$$
 d(P_i,C_j)=\sqrt{(P_{i1}-C_{j1})^2+(P_{i2}-C_{j2})^2+(P_{i3}-C_{j3})^2+\cdots+(P_{iD}-C_{jD})^2}
 
 =\sqrt{(P_{i1}^2+P_{i2}^2+P_{i3}^2+\cdots+P_{iD}^2)+(C_{j1}^2+C_{j2}^2+C_{j3}^2+\cdots+C_{jD}^2)-2*(P_{i1}C_{j1}+P_{i2}C_{j2})+P_{i3}C_{j3}+\cdots+P_{iD}C_{jD}}
 
 =\sqrt{||P_i||^2+||C_j||^2-2P_iC_j'}
-```
+$$
 （3）推广到矩阵的每一行：
-```math
+$$
 res(i)=\sqrt{(||P_i||^2\ \ ||P_i||^2\ \ \cdots\ ||P_i||^2)+(||C_1||^2\ \ ||C_2||^2\ \ \cdots\ ||C_j||^2)-2P_i(C_1'\ \ C_2'\ \ \cdots\ C_D')}
 
 =\sqrt{(||P_i||^2\ \ ||P_i||^2\ \ \cdots\ ||P_i||^2)+(||C_1||^2\ \ ||C_2||^2\ \ \cdots\ ||C_j||^2)-2P_iC'}
-```
+$$
 （4）推广到矩阵计算：
-```math
+$$
 res=\sqrt{\begin{pmatrix}
 ||P_1||^2 &||P_1||^2  &\cdots  &||P_1||^2 \\ 
 ||P_2||^2 &||P_2||^2  &\cdots  &||P_2||^2 \\ 
@@ -395,7 +395,7 @@ res=\sqrt{\begin{pmatrix}
 \cdots\\ 
 1
 \end{pmatrix}_{M\times1}*\begin{pmatrix}||C_1||^2\ \ ||C_2||^2\ \ \cdots\ \ ||C_N||^2\end{pmatrix}_{1\times N}-2PC'}
-```
+$$
 ###### python代码实现：
 ```python
     def compute_distances_no_loops(self, X):
