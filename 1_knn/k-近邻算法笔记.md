@@ -80,7 +80,7 @@ ax.scatter(datingDataMat[:,1],datingDataMat[:,2],15.0*np.array(datingLabels),15.
 plt.show()
 ```
 结果图：
-![](https://ws1.sinaimg.cn/large/8a97fbfegy1flityr4l7pj20zk0qo0zl.jpg)
+![image](https://ws1.sinaimg.cn/large/8a97fbfegy1flityr4l7pj20zk0qo0zl.jpg)
 ###### 测试数据
 首先对不同数量级的特征进行归一化，然后调用knn算法进行测试
 ```python
